@@ -11,7 +11,7 @@ export class ScriptEditor extends HandlebarsApplicationMixin(ApplicationV2) {
     title: "Script do Item",
     template: "modules/item-script-t20/templates/script-editor.html",   // ← trocado
     width: 600,
-    height: "auto",
+    height: 500,
     actions: {
       save: ScriptEditor._onSave
     }
