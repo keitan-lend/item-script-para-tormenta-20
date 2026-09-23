@@ -1,19 +1,25 @@
 import { ScriptEditor } from "./script-editor.js";
 
 export const itemScriptT20 = {
-  ID: "item-script-t20"   // ← trocado
+  ID: "item-script-t20"
 };
 
 // Função auxiliar que adiciona o botão (evitando duplicatas)
 function addScriptButton(sheet, html) {
-  if (html.find(".script-btn").length) return;
-  const btn = $(`<a class="script-btn"><i class="fas fa-terminal"></i> Script</a>`);
+  if (html.find(".script-btn").length) return; // evita duplicar
+
+  // Botão nativo do Foundry v14 (mesmo estilo dos outros do cabeçalho)
+  const btn = $(`<button type="button" class="header-control icon fa-solid fa-terminal" data-tooltip="Script"></button>`);
+  btn.addClass("script-btn"); // usamos essa classe só para controle interno
   btn.click(() => new ScriptEditor(sheet.item).render(true));
-  html.find(".window-header").append(btn);
+
+  // Posiciona o botão logo ANTES do botão de fechar
+  html.find(".window-header .close").before(btn);
 }
 
 Hooks.on("renderItemSheet", (sheet, html) => addScriptButton(sheet, html));
 
+// Fallback para sheets V2 (se o sistema já tiver migrado)
 Hooks.on("renderItemSheetV2", (sheet, html) => addScriptButton(sheet, html));
 
 Hooks.once("ready", () => {
@@ -21,7 +27,7 @@ Hooks.once("ready", () => {
   if (ItemT20?.prototype?.roll) {
     window.ItemT20 = ItemT20;
     libWrapper.register(
-      "item-script-t20",   // ← trocado (o nome do módulo registrado no libWrapper)
+      "item-script-t20",
       "ItemT20.prototype.roll",
       async function (wrapped, ...args) {
         const result = await wrapped(...args);
@@ -31,12 +37,12 @@ Hooks.once("ready", () => {
       "WRAPPER"
     );
   } else {
-    console.warn("Item Script T20: método roll não encontrado. O script não será executado automaticamente.");
+    console.warn("Item Script T20: método roll não encontrado.");
   }
 });
 
 async function runItemScript(item) {
-  const script = item.getFlag("item-script-t20", "script");   // ← trocado
+  const script = item.getFlag("item-script-t20", "script");
   if (script) {
     try {
       const actor = item.actor;

@@ -8,15 +8,21 @@ export class ScriptEditor extends HandlebarsApplicationMixin(ApplicationV2) {
 
   static DEFAULT_OPTIONS = {
     id: "item-script-editor",
-    title: "Script do Item",
-    template: "modules/item-script-t20/templates/script-editor.html",
-    position: { width: 620, height: 500 },
+    classes: ["item-script-editor-app"],
+    position: { width: 620, height: 520 },
     window: {
+      title: "Script do Item",
       resizable: true,
-      contentClasses: ["item-script-editor-window"]
+      contentClasses: ["item-script-editor-content"]
     },
     actions: {
       save: ScriptEditor._onSave
+    }
+  };
+
+  static PARTS = {
+    form: {
+      template: "modules/item-script-t20/templates/script-editor.html"
     }
   };
 
