@@ -7,3 +7,41 @@
 .script-btn:hover {
   color: var(--color-text-light-heading);
 }
+
+.item-script-editor-window {
+  padding: 12px;
+}
+
+.item-script-editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
+
+.item-script-editor textarea[name="script"] {
+  width: 100%;
+  min-height: 300px;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 8px;
+  resize: vertical;
+  background: var(--color-cool-5, #1a1a1a);
+  color: var(--color-text-light-primary, #e0e0e0);
+  border: 1px solid var(--color-border-dark, #444);
+  border-radius: 4px;
+}
+
+.item-script-editor-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border-dark, #444);
+}
+
+.item-script-editor-footer button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

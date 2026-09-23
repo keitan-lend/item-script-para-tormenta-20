@@ -9,16 +9,19 @@ export class ScriptEditor extends HandlebarsApplicationMixin(ApplicationV2) {
   static DEFAULT_OPTIONS = {
     id: "item-script-editor",
     title: "Script do Item",
-    template: "modules/item-script-t20/templates/script-editor.html",   // ← trocado
-    width: 600,
-    height: 500,
+    template: "modules/item-script-t20/templates/script-editor.html",
+    position: { width: 620, height: 500 },
+    window: {
+      resizable: true,
+      contentClasses: ["item-script-editor-window"]
+    },
     actions: {
       save: ScriptEditor._onSave
     }
   };
 
   async _prepareContext(options) {
-    const script = this.item.getFlag("item-script-t20", "script") || "";   // ← trocado
+    const script = this.item.getFlag("item-script-t20", "script") || "";
     return {
       item: this.item,
       script: script
@@ -26,10 +29,9 @@ export class ScriptEditor extends HandlebarsApplicationMixin(ApplicationV2) {
   }
 
   static async _onSave(event, target) {
-    const form = this.element.querySelector("form");
-    const formData = new foundry.applications.ux.FormDataExtended(form);
-    const script = formData.object.script;
-    await this.item.setFlag("item-script-t20", "script", script);   // ← trocado
+    const textarea = this.element.querySelector("textarea[name='script']");
+    const script = textarea?.value ?? "";
+    await this.item.setFlag("item-script-t20", "script", script);
     ui.notifications.info("Script salvo.");
     this.close();
   }
