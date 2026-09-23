@@ -1,0 +1,9 @@
+.script-btn {
+  margin-left: 8px;
+  cursor: pointer;
+  color: var(--color-text-light-highlight);
+  opacity: 1;
+}
+.script-btn:hover {
+  color: var(--color-text-light-heading);
+}

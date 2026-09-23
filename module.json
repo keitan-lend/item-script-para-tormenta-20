@@ -1,0 +1,74 @@
+{
+  "id": "item-script-t20",
+  "title": "Item Script para Tormenta 20",
+  "description": "<p>Permite definir scripts personalizados que rodam ao usar um item no sistema Tormenta 20. Inspirado no módulo Item Macro.</p>",
+  "version": "1.0.2",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "14"
+  },
+  "packs": [
+    {
+      "name": "script-para-engenhocas",
+      "label": "Script para Engenhocas",
+      "path": "packs/script-para-engenhocas",
+      "type": "Macro",
+      "system": "tormenta20",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+  "esmodules": [
+    "script.js"
+  ],
+  "styles": [
+    {
+      "src": "style.css"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json",
+      "flags": {}
+    }
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "tormenta20",
+        "type": "system",
+        "compatibility": {}
+      }
+    ],
+    "requires": [
+      {
+        "id": "lib-wrapper",
+        "type": "module",
+        "compatibility": {
+          "minimum": "1.13.0"
+        }
+      }
+    ]
+  },
+  "authors": [
+    {
+      "name": "Haydgi",
+      "url": "https://github.com/Haydgi",
+      "discord": "xdhayd",
+      "flags": {}
+    },
+    {
+      "name": "keitan-lend",
+      "url": "https://github.com/keitan-lend",
+      "discord": "lucashmuniz",
+      "flags": {}
+    }
+  ],
+  "url": "https://github.com/keitan-lend/item-script-para-tormenta-20",
+  "manifest": "https://raw.githubusercontent.com/keitan-lend/item-script-para-tormenta-20/main/module.json",
+  "download": "https://github.com/keitan-lend/item-script-para-tormenta-20/releases/latest/download/item-script-t20.zip"
+}
