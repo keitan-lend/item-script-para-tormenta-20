@@ -54,7 +54,7 @@ ChatMessage.create({
 1.  No Foundry VTT, vá para a aba **"Add-on Modules"** (Módulos Adicionais).
 2.  Clique em **"Install Module"** (Instalar Módulo).
 3.  No campo **"Manifest URL"** (URL do Manifesto), cole o link do seu `module.json`:
-    `https://raw.githubusercontent.com/SEU-USUARIO/item-script-para-tormenta-20/main/module.json`
+    `https://raw.githubusercontent.com/keitan-lend/item-script-para-tormenta-20/main/module.json`
 4.  Clique em **"Install"**.
 
 ## Informações
